@@ -235,8 +235,8 @@ function install_pytorch_v110_python27()
 	install_deb_package "zlib1g-dev" FOUND_ZLIB
 
 	# install pytorch wheel
-	download_wheel pip "torch-1.1.0-cp27-cp27mu-linux_aarch64.whl" "https://nvidia.box.com/shared/static/o8teczquxgul2vjukwd4p77c6869xmri.whl"
-
+	download_wheel pip "torch-1.2.0a0+8554416-cp27-cp27mu-linux_aarch64.whl" "https://nvidia.box.com/shared/static/8gcxrmcc6q4oc7xsoybk5wb26rkwugme.whl"
+	
 	local wheel_status=$?
 
 	if [ $wheel_status != 0 ]; then
@@ -247,7 +247,7 @@ function install_pytorch_v110_python27()
 	# build torchvision
 	echo "$LOG cloning torchvision..."
 	rm -r -f torchvision-27
-	git clone -bv0.3.0 https://github.com/dusty-nv/vision torchvision-27
+	git clone -bv0.5.0 https://github.com/dusty-nv/vision torchvision-27
 	cd torchvision-27
 	echo "$LOG building torchvision for Python 3.6..."
 	sudo python setup.py install
@@ -268,7 +268,7 @@ function install_pytorch_v110_python36()
 	install_deb_package "zlib1g-dev" FOUND_ZLIB
 
 	# install pytorch wheel
-	download_wheel pip3 "torch-1.1.0-cp36-cp36m-linux_aarch64.whl" "https://nvidia.box.com/shared/static/j2dn48btaxosqp0zremqqm8pjelriyvs.whl"
+	download_wheel pip3 "torch-1.2.0a0+8554416-cp36-cp36m-linux_aarch64.whl" "https://nvidia.box.com/shared/static/06vlvedmqpqstu1dym49fo7aapgfyyu9.whl"
 
 	local wheel_status=$?
 
@@ -280,7 +280,7 @@ function install_pytorch_v110_python36()
 	# build torchvision
 	echo "$LOG cloning torchvision..."
 	rm -r -f torchvision-36
-	git clone -bv0.3.0 https://github.com/dusty-nv/vision torchvision-36
+	git clone -bv0.5.0 https://github.com/dusty-nv/vision torchvision-36
 	cd torchvision-36
 	echo "$LOG building torchvision for Python 3.6..."
 	sudo python3 setup.py install
